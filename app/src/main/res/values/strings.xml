@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidExercise</string>
+    <string name="no_facts_found">No Facts Found</string>
+    <string name="refresh">Refresh</string>
+</resources>
