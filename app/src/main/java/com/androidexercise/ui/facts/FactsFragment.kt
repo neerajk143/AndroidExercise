@@ -12,7 +12,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.androidexercise.R
 import com.androidexercise.model.ResponseFacts
 import com.androidexercise.util.NetworkUtil
@@ -44,7 +43,7 @@ class FactsFragment : DaggerFragment() {
 
     private fun initialiseViewModel() {
         factsViewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(FactsViewModel::class.java)
+            ViewModelProvider(this).get(FactsViewModel::class.java)
     }
 
     public fun callFactsAPI() {
@@ -52,7 +51,7 @@ class FactsFragment : DaggerFragment() {
             showProgress()
             factsViewModel.getFacts()
         } else {
-            Toast.makeText(mActiviy, "Please connect to Internet.", Toast.LENGTH_LONG)
+            Toast.makeText(mActiviy, getString(R.string.no_internet_connection), Toast.LENGTH_LONG)
                 .show()
         }
     }

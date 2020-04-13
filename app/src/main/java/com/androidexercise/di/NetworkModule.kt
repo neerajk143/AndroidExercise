@@ -40,7 +40,7 @@ class NetworkModule {
     fun provideOkHttpClient(): OkHttpClient {
         val logging = HttpLoggingInterceptor()
         //logging.setLevel(HttpLoggingInterceptor.Level.HEADERS)
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+        logging.level = HttpLoggingInterceptor.Level.BODY;
         val client = OkHttpClient.Builder()
             .connectTimeout(100, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
